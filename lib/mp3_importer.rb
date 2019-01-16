@@ -7,9 +7,7 @@ class MP3Importer
   end
 
   def files
-    @files ||= Dir.glob("#{path}/*.mp3")
-    binding.pry
-    #.map{|f| binding.pry f.gsub("#{path}/", "")}
+    @files ||= Dir.glob("#{path}/*.mp3").map{|f| f.gsub("#{path}/", "")}
     #Dir.entries(@path).select {|filename| filename.include?("mp3")}
   end
 
