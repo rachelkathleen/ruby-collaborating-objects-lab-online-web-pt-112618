@@ -1,3 +1,4 @@
+require 'pry'
 class MP3Importer
   attr_reader :path
 
@@ -6,7 +7,8 @@ class MP3Importer
   end
 
   def files
-    @files ||= Dir.glob("#{path}/*.mp3").collect{ |f| f.gsub("#{path}/", "") }
+    @files ||= Dir.glob("#{path}/*.mp3").map{|f| f.gsub("#{path}/", "")}
+    binding,pry
     #Dir.entries(@path).select {|filename| filename.include?("mp3")}
   end
 
